@@ -92,6 +92,7 @@
                 <th>Domisili</th>
                 <th>Program Studi</th>
                 <th>Skill Programming</th>
+                <th>Skor Skill</th>
             </tr>
             <?php 
             if(isset($_POST['submit'])){
@@ -102,6 +103,31 @@
                 $domisili = $_POST['domisili'];
                 $program_studi = $_POST['program_studi'];
                 $skills = $_POST['skill'];
+                $skor = 0;
+                // menghitung skor
+                foreach ($skills as $skill){
+                if ($skill = 'HTML'){
+                    $skor = $skor + 10;
+                }
+                elseif ($skill = 'CSS'){
+                    $skor = $skor + 10;
+                }
+                elseif ($skill = 'JavaScript'){
+                    $skor = $skor + 20;
+                }
+                elseif ($skill = 'RWD Bootstrap'){
+                    $skor = $skor + 20;
+                }
+                elseif ($skill = 'PHP'){
+                    $skor = $skor + 30;
+                }
+                elseif ($skill = 'Python'){
+                    $skor = $skor + 30;
+                }
+                elseif ($skill = 'JAVA'){
+                    $skor = $skor + 50;
+                }
+            };
             
             ?>
             <tr>
@@ -113,8 +139,9 @@
                 <td><?= $program_studi; ?></td>
                 <td>
                     <?php foreach($skills as $skill){
-                    echo $skill; } ?>
+                    echo $skill, ','; } ?>
                 </td>
+                <td><?= $skor ?></td>
             </tr>
                 <?php } ?>
         </table>

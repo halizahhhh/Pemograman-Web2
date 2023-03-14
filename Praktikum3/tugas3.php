@@ -37,7 +37,6 @@
     }
 ?>
 
-<?php require_once "proses_registrasi.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
