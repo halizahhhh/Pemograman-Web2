@@ -13,7 +13,5 @@
     else{
         $keterangan = "TIDAK LULUS";
     }
-    
-
 
 ?>
