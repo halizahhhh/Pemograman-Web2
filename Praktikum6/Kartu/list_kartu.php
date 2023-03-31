@@ -9,7 +9,7 @@
       <a class="btn btn-success" href="form_kartu.php" role="button">Create Kartu</a>
       <a class="btn btn-primary" href="../../Praktikum5/databasephp-main/list_produk.php" role="button">Produk</a>
       <a class="btn btn-primary" href="../../Praktikum5/databasephp-main/list_pelanggan.php" role="button">Pelanggan</a>
-      <a class="btn btn-primary" href="../kartu/list_vendor.php" role="button">Kartu</a>
+      <a class="btn btn-primary" href="../kartu/list_kartu.php" role="button">Kartu</a>
       <a class="btn btn-primary" href="../vendor/list_vendor.php" role="button">Vendor</a>
         <table class="table table-hover table-bordered" width="100%" border="1" cellspacing="2" cellpadding="2">
             <thead>
@@ -34,9 +34,9 @@
                         <td><?=$row['diskon']?></td>
                         <td><?=$row['iuran']?></td>
                         <td>
-<a class="btn btn-primary" href="view_vendor.php?id=<?=$row['id']?>">View</a>
-<a class="btn btn-warning" href="edit_vendor.php?idedit=<?=$row['id']?>">Edit</a>
-<a class="btn btn-danger" href="delete_vendor.php?iddel=<?=$row['id']?>"
+<a class="btn btn-primary" href="view_kartu.php?id=<?=$row['id']?>">View</a>
+<a class="btn btn-warning" href="edit_kartu.php?idedit=<?=$row['id']?>">Edit</a>
+<a class="btn btn-danger" href="delete_kartu.php?iddel=<?=$row['id']?>"
 onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$row['nama']?>?')) {return false}"
 >Delete</a>
 </td>

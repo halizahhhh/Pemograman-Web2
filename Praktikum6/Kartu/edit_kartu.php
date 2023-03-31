@@ -1,7 +1,20 @@
 <?php 
 require_once '../dbkoneksi.php';
 ?>
-                     
+<?php 
+    $_idedit = $_GET['idedit'];
+    if(!empty($_idedit)){
+        // edit
+        $sql = "SELECT * FROM Kartu WHERE id=?";
+        $st = $dbh->prepare($sql);
+        $st->execute([$_idedit]);
+        $row = $st->fetch();
+    }else{
+        // new data
+        $row = [];
+    }
+?>    
+            
 <form method="POST" action="proses_kartu.php">
   <div class="form-group row">
     <label for="kode" class="col-4 col-form-label">Kode</label> 
@@ -13,7 +26,7 @@ require_once '../dbkoneksi.php';
           </div>
         </div> 
         <input id="kode" name="kode" type="text" class="form-control"
-        value="">
+        value="<?= $row['kode']?>">
       </div>
     </div>
   </div>
@@ -27,7 +40,7 @@ require_once '../dbkoneksi.php';
           </div>
         </div> 
         <input id="nama" name="nama" type="text" class="form-control" 
-        value="">
+        value="<?= $row['nama']?>">
       </div>
     </div>
   </div>
@@ -41,7 +54,7 @@ require_once '../dbkoneksi.php';
           </div>
         </div> 
         <input id="diskon" name="diskon" 
-        value="" type="text" class="form-control">
+        value="<?= $row['diskon']?>" type="text" class="form-control">
       </div>
     </div>
   </div>
@@ -54,7 +67,7 @@ require_once '../dbkoneksi.php';
             <i class="fa fa-arrow-circle-up"></i>
           </div>
         </div> 
-        <input id="iuran" name="iuran" value=""
+        <input id="iuran" name="iuran" value="<?= $row['iuran']?>"
         type="text" class="form-control">
       </div>
     </div>
@@ -62,7 +75,8 @@ require_once '../dbkoneksi.php';
   <div class="form-group row">
     <div class="offset-4 col-8">
       <input type="submit" name="proses" type="submit" 
-      class="btn btn-primary" value="Simpan"/>
+      class="btn btn-primary" value="Update"/>
+      <input type="hidden" name="idedit" value="<?=$_idedit;?>">
     </div>
   </div>
 </form>
