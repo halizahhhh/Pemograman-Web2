@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrasiAnggotaController;
 use App\Http\Controllers\PeminjamanBukuController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +36,13 @@ Route::get('/tes-kesehatan', function () {
     return view('tes-kesehatan');
 });
 
+//Praktikum 9
+
 Route::get('/form-registrasi-anggota', [RegistrasiAnggotaController::class, 'index']);
 Route::post('/hasil-regist', [RegistrasiAnggotaController::class, 'hasil']);
 
 Route::get('/form-peminjaman-buku', [PeminjamanBukuController::class, 'index']);
 Route::post('/hasil-peminjaman', [PeminjamanBukuController::class, 'hasil']);
+
+//Praktikum 10
+Route::get('/dashboard', [DashboardController::class, 'index']);
