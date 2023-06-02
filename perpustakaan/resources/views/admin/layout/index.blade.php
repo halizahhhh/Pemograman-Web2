@@ -1,5 +1,4 @@
 @include('admin.layout.navbar')
 @include('admin.layout.sidebar')
 @yield('content')
-@yield('buku')
 @include('admin.layout.footer')

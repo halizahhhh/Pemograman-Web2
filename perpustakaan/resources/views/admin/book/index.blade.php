@@ -1,5 +1,5 @@
 @extends('admin.layout.index')
-@section('buku')
+@section('content')
 <div class="content-wrapper">
     <div class="page-header">
       <h3 class="page-title">
@@ -27,26 +27,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                  @foreach ($books as $book)
                     <tr>
-                        <td>1</td>
-                        <td>Cinta Itu Luka</td>
-                        <td>10</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $book->title }}</td>
+                        <td>{{ $book->stok }}</td>
                         <td>
-    <a class="btn btn-primary" href="">View</a>
-    <a class="btn btn-warning" href="">Edit</a>
-    <a class="btn btn-danger" href="" >Delete</a>
+                          <a class="btn btn-primary" href="">View</a>
+                          <a class="btn btn-warning" href="">Edit</a>
+                          <a class="btn btn-danger" href="" >Delete</a>
                         </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Laut Bercerita</td>
-                        <td>10</td>
-                        <td>
-    <a class="btn btn-primary" href="">View</a>
-    <a class="btn btn-warning" href="">Edit</a>
-    <a class="btn btn-danger" href="" >Delete</a>
-                        </td>
-                      </tr>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
