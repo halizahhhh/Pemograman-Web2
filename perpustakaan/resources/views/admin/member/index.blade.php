@@ -9,7 +9,7 @@
       </h3>
     </div>
     <div>
-        <a class="btn btn-primary mdi mdi-plus-box" href="#" role="button"> Tambah Anggota</a>
+        <a class="btn btn-primary mdi mdi-plus-box" href="{{ url('dashboard/member/create') }}" role="button"> Tambah Anggota</a>
     </div>
     <div class="row">
       <div class="col-12 grid-margin">
@@ -22,6 +22,7 @@
                     <tr class="table-danger text-uppercase">
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Email</th>
                         <th>Jenis Kelamin</th>
                         <th>Status</th>
                         <th>Alamat</th>
@@ -33,13 +34,19 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $member->name }}</td>
+                        <td>{{ $member->email }}</td>
                         <td>{{ $member->gender }}</td>
                         <td>{{ $member->status }}</td>
                         <td>{{ $member->address }}</td>
                         <td>
-                          <a class="btn btn-primary" href="">View</a>
-                          <a class="btn btn-warning" href="">Edit</a>
-                          <a class="btn btn-danger" href="" >Delete</a>
+                          <a class="btn btn-primary btn-sm" href="">View</a>
+                          <a class="btn btn-warning btn-sm" href="">Edit</a>
+                          <form action="{{ url('/dashboard/member/destroy', $member->id)}}" method="post" class="d-inline">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm"
+                            onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$member['name']?>?')) {return false}">Delete</button>
+                        </form>
                         </td>
                     </tr>
                   @endforeach

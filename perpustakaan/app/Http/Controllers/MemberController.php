@@ -26,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.member.create');
     }
 
     /**
@@ -34,7 +34,17 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validasi Form input
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'gender' => 'required|in:Pria,Wanita',
+            'status' => 'required',
+            'address' => 'required',
+        ]);
+
+        Member::create($validated);
+        return redirect('/dashboard/member');
     }
 
     /**
@@ -66,6 +76,12 @@ class MemberController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Mencari data berddasarkan id
+        $member = Member::find($id);
+
+        // Hapus data berdasarkan id
+        $member->delete();
+
+        return redirect('/dashboard/member');
     }
 }

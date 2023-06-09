@@ -56,3 +56,13 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/book', [BookController::class, 'index']);
 //Tugas Praktikum 11
 Route::get('/dashboard/member', [MemberController::class, 'index']);
+
+//Praktikum 12 
+Route::get('/dashboard/book/create', [BookController::class, 'create']);
+Route::post('/dashboard/book/store', [BookController::class, 'store']);
+Route::delete('/dashboard/book/destroy/{id}', [BookController::class, 'destroy']);
+
+//Tugas Praktikum 12
+Route::get('/dashboard/member/create', [MemberController::class, 'create']);
+Route::post('/dashboard/member/store', [MemberController::class, 'store']);
+Route::delete('/dashboard/member/destroy/{id}', [MemberController::class, 'destroy']);

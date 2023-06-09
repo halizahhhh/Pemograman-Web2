@@ -26,7 +26,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.book.create');
     }
 
     /**
@@ -34,7 +34,15 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validasi Form input
+        $validated = $request->validate([
+            'title' => 'required|min:5|max:24',
+            'isbn' => 'required|integer',
+            'stok' => 'required|integer',
+        ]);
+
+        Book::create($validated);
+        return redirect('/dashboard/book');
     }
 
     /**
@@ -66,6 +74,12 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Mencari data berddasarkan id
+        $book = Book::find($id);
+
+        // Hapus data berdasarkan id
+        $book->delete();
+
+        return redirect('/dashboard/book');
     }
 }

@@ -9,7 +9,7 @@
       </h3>
     </div>
     <div>
-        <a class="btn btn-primary mdi mdi-plus-box" href="#" role="button"> Tambah Buku</a>
+        <a class="btn btn-primary mdi mdi-plus-box" href="{{ url('dashboard/book/create') }}" role="button"> Tambah Buku</a>
     </div>
     <div class="row">
       <div class="col-12 grid-margin">
@@ -35,7 +35,12 @@
                         <td>
                           <a class="btn btn-primary" href="">View</a>
                           <a class="btn btn-warning" href="">Edit</a>
-                          <a class="btn btn-danger" href="" >Delete</a>
+                          <form action="{{ url('/dashboard/book/destroy', $book->id)}}" method="post" class="d-inline">
+                              @csrf
+                              @method('delete')
+                              <button type="submit" class="btn btn-danger"
+                              onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$book['title']?>?')) {return false}">Delete</button>
+                          </form>
                         </td>
                     </tr>
                   @endforeach
