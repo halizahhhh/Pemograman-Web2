@@ -40,12 +40,12 @@
                         <td>{{ $member->address }}</td>
                         <td>
                           <a class="btn btn-primary btn-sm" href="">View</a>
-                          <a class="btn btn-warning btn-sm" href="">Edit</a>
+                          <a class="btn btn-warning btn-sm" href="{{ url('/dashboard/member/edit', $member->id)}}">Edit</a>
                           <form action="{{ url('/dashboard/member/destroy', $member->id)}}" method="post" class="d-inline">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger btn-sm"
-                            onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$member['name']?>?')) {return false}">Delete</button>
+                            onclick="if(!confirm('Anda Yakin Hapus Data Produk {{$member['name']}}')) {return false}">Delete</button>
                         </form>
                         </td>
                     </tr>

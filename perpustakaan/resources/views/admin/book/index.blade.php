@@ -15,6 +15,11 @@
       <div class="col-12 grid-margin">
         <div class="card">
           <div class="card-body">
+            @if (session('success'))
+              <div class="alert alert-success">
+                {{ session('success') }}
+              </div>
+            @endif
             <h4 class="card-title">Daftar Buku Tersedia</h4>
             <div class="table-responsive">
               <table class="table">
@@ -33,13 +38,13 @@
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->stok }}</td>
                         <td>
-                          <a class="btn btn-primary" href="">View</a>
-                          <a class="btn btn-warning" href="">Edit</a>
+                          <a class="btn btn-primary" href="{{ url('/dashboard/book/show', $book->id)}}">View</a>
+                          <a class="btn btn-warning" href="{{ url('/dashboard/book/edit', $book->id)}}">Edit</a>
                           <form action="{{ url('/dashboard/book/destroy', $book->id)}}" method="post" class="d-inline">
                               @csrf
                               @method('delete')
                               <button type="submit" class="btn btn-danger"
-                              onclick="if(!confirm('Anda Yakin Hapus Data Produk <?=$book['title']?>?')) {return false}">Delete</button>
+                              onclick="if(!confirm('Anda Yakin Hapus Data Produk {{$book['title']}}')) {return false}">Delete</button>
                           </form>
                         </td>
                     </tr>
