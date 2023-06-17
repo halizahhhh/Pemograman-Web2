@@ -71,3 +71,8 @@ Route::delete('/dashboard/member/destroy/{id}', [MemberController::class, 'destr
 Route::get('/dashboard/book/edit/{id}', [BookController::class, 'edit']);
 Route::put('/dashboard/book/update/{id}', [BookController::class, 'update']);
 Route::get('/dashboard/book/show/{id}', [BookController::class, 'show']);
+
+//Tugas Praktikum 13 - Edit dan Detail
+Route::get('/dashboard/member/edit/{id}', [MemberController::class, 'edit']);
+Route::put('/dashboard/member/update/{id}', [MemberController::class, 'update']);
+Route::get('/dashboard/member/show/{id}', [MemberController::class, 'show']);

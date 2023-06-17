@@ -51,12 +51,12 @@
                     <div class="col-8">
                         <div class="custom-control custom-radio custom-control-inline">
                             <input name="gender" id="gender_0" type="radio" class="custom-control-input"
-                                value="Pria" {{ old('gender') == 'Pria' ? 'checked' : ''}}>
+                                value="Pria" {{ $member->gender == 'Pria' ? 'checked' : ''}}>
                             <label for="gender_0" class="custom-control-label">Pria</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
                             <input name="gender" id="gender_1" type="radio" class="custom-control-input"
-                                value="Wanita" {{ old('gender') == 'Wanita' ? 'checked' : ''}}>
+                                value="Wanita" {{ $member->gender == 'Wanita' ? 'checked' : ''}}>
                             <label for="gender_1" class="custom-control-label">Wanita</label>
                         </div>
                     </div>
